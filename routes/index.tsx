@@ -12,7 +12,7 @@ export const handler: Handlers<Post[]> = {
 
 async function getPost(slug: string): Promise<Post | null> {
   const text = await Deno.readTextFile(join("./posts", `${slug}.md`));
-  const { attrs, body } = extract(text);
+  const { attrs, body }: any = extract(text);
   return {
     slug,
     title: attrs.title,
